@@ -12,8 +12,11 @@ vcpkg_download_distfile(PATCH_ADD_CPP20
     FILENAME opencv4-4.11.0-cpp20.patch
 )
 
-
-  
+vcpkg_download_distfile(PATCH_ADD_CPP26
+    URLS https://github.com/opencv/opencv/commit/2a681bbb6bc6280cfd7d6f8dfdd324254f316a05.patch?full_index=1
+    SHA512 4a280575850f7cc214f95ad9492e306de7ebef58179a0cc882381e9999535aef801d0cd1e0b6479f9c8829e4823aa70fe3f147d6f88d43756a01ee49ad72a7d1
+    FILENAME opencv4-4.11.0-cpp26.patch
+)  
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
@@ -39,6 +42,7 @@ vcpkg_from_github(
       0019-opencl-kernel.patch
       0020-miss-openexr.patch
       "${PATCH_ADD_INCLUDE_CHRONO}"
+      "${PATCH_ADD_CPP26}"
       "${PATCH_ADD_CPP20}"
 )
 # Disallow accidental build of vendored copies
