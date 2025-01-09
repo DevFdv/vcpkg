@@ -6,6 +6,15 @@ vcpkg_download_distfile(PATCH_ADD_INCLUDE_CHRONO
     FILENAME opencv4-4.11.0-include-chrono.patch
 )
 
+vcpkg_download_distfile(PATCH_ADD_CPP20
+    URLS https://github.com/opencv/opencv/commit/260f511dfb59b55831f3ec0e03a0d2d29ec3075f.patch?full_index=1
+    SHA512 dba84910e0eff703bddadc048e394f476380265737b563bca9022db2c29872d27e0bb176752300d5aced6707e64419da6495c2b44dee503a0e8f8569f8f7ecdc
+    FILENAME opencv4-4.11.0-cpp20.patch
+)
+
+
+  
+
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO opencv/opencv
@@ -30,6 +39,7 @@ vcpkg_from_github(
       0019-opencl-kernel.patch
       0020-miss-openexr.patch
       "${PATCH_ADD_INCLUDE_CHRONO}"
+      "${PATCH_ADD_CPP20}"
 )
 # Disallow accidental build of vendored copies
 file(REMOVE_RECURSE "${SOURCE_PATH}/3rdparty/openexr")
